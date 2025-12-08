@@ -1,16 +1,49 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProdutoContext } from "../../context/produtoContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { addCarrinho } from "../../api/itensCarrinho";
 import "./produto.css"
+import { getFavoritos } from "../../api/favoritos";
 
 export default function Produto() {
+    const navigate = useNavigate();
     const { produtos, erro } = useContext(ProdutoContext);
-    const { id } = useParams()
-    const [coracao, setCoracao] = useState(false)
+    const { id } = useParams();
+    const [coracao, setCoracao] = useState(false);
     const [mensagem, setMensagem] = useState("");
+    const [favoritos, setFavoritos] = useState([]);
 
     const produto = produtos.find(p => p.id == id)
+
+    const isFavorito = favoritos.includes(produto?.id)
+
+    async function handleFavoritar() {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login")
+
+            return;
+        }
+
+        await toggleFavoritar(produto.id, token);
+
+        setFavoritos(prev =>
+            prev.includes(produto.id)
+                ? prev.filter(id => id !== produto.id)
+                : [...prev, produto.id]
+        );
+    }
+
+    useEffect(() => {
+        async function carregarFavoritos() {
+            const token = localStorage.getItem("token")
+            if (!token) return;
+
+            const resposta = await getFavoritos(token)
+            setFavoritos(resposta.map(f => f.id))
+        }
+        carregarFavoritos()
+    }, [])
 
     async function handleAddCarrimho() {
         try {
@@ -39,7 +72,8 @@ export default function Produto() {
                 <div >
                     <div className="titulo-icone">
                         <div className="div-filho-produtos">
-                            <i onClick={() => setCoracao(!coracao)} className={`icone-fav ${coracao ? "fa-solid" : "fa-regular"} fa-heart`}
+                            <i onClick={handleFavoritar} className={`icone-fav ${isFavorito ? "fa-solid" : "fa-regular"} fa-heart`}
+
                             ></i></div>
                         <h1 className="titulo-produto">{produto.nome}</h1>
                     </div>

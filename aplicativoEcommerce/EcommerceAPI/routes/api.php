@@ -6,6 +6,7 @@ use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CupomController;
 use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\FavoritarController;
 use App\Http\Controllers\ItemCarrinhoController;
 use App\Http\Controllers\ItemPedidoController;
 use App\Http\Controllers\PedidoController;
@@ -99,3 +100,8 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+Route::middleware('auth:sanctum')->prefix('favoritos')->group(function () {
+    Route::post('/{id}', [FavoritarController::class, 'toggleFavorito']);
+    Route::get('/', [FavoritarController::class, 'getFavoritos']);
+});

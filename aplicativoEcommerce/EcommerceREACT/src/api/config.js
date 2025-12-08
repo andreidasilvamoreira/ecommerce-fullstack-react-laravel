@@ -5,4 +5,5 @@ export const API_ItensCarrinhos = "http://127.0.0.1:8000/api/itensCarrinho";
 export const API_User = "http://127.0.0.1:8000/api/user";
 export const API_Login = "http://127.0.0.1:8000/api/login"
 export const API_Registro = "http://127.0.0.1:8000/api/register"
+export const API_Favorito = "http://127.0.0.1:8000/api/favoritos"
 
