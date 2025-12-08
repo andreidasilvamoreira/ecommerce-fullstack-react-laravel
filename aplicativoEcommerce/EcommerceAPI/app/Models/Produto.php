@@ -36,4 +36,10 @@ class Produto extends Model
     {
         return $this->hasMany(ItemPedido::class);
     }
+
+    public function favoritadoPor()
+    {
+        return $this->belongsToMany(User::class, 'favoritos');
+    }
+
 }
