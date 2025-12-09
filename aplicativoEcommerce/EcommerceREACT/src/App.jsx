@@ -9,6 +9,7 @@ import Register from './pages/register'
 import { ProdutoProvider } from './context/produtoContext'
 import Produto from './pages/Produto/Produto'
 import { AuthProvider } from './context/authContext'
+import { FavoritosProvider } from './context/favoritoContext'
 
 
 function App() {
@@ -16,19 +17,21 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <ProdutoProvider>
-          <PedidosProvider>
-            <NavBar />
-            <Routes>
-              <Route path="/produto/:id" element={<Produto />}></Route>
-              <Route path="/" element={<Home />} />
-              <Route path="/carrinho" element={<Carrinho />} />
-              <Route path="adm/carrinho" element={<CarrinhoADM />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </PedidosProvider>
-        </ProdutoProvider>
+        <FavoritosProvider>
+          <ProdutoProvider>
+            <PedidosProvider>
+              <NavBar />
+              <Routes>
+                <Route path="/produto/:id" element={<Produto />}></Route>
+                <Route path="/" element={<Home />} />
+                <Route path="/carrinho" element={<Carrinho />} />
+                <Route path="adm/carrinho" element={<CarrinhoADM />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Routes>
+            </PedidosProvider>
+          </ProdutoProvider>
+        </FavoritosProvider>
       </AuthProvider>
     </BrowserRouter>
   )

@@ -10,6 +10,13 @@ export default function Home() {
 
   useEffect(() => {
     async function checkSession() {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        setLoading(false);
+        return;
+      }
+      
       try {
 
         const data = await getUser(token);
