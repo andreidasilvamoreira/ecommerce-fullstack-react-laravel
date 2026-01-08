@@ -1,71 +1,71 @@
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #ffffff;
-    font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
 }
 
 .login-box {
-    background: #fff;
-    padding: 5vh 4vh;
-    border-radius: 1.5vh;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 35vh;
-    text-align: center;
-    margin-bottom: 15vh;
+  background: #fff;
+  padding: 5vh 4vh;
+  border-radius: 1.5vh;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 35vh;
+  text-align: center;
+  margin-bottom: 15vh;
 }
 
 .login {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: 200;
-    color: #333;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 200;
+  color: #333;
 }
 
 .login-box input {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: all 0.2s;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.2s;
 }
 
 .login-box input:focus {
-    border-color: #888;
-    outline: none;
+  border-color: #888;
+  outline: none;
 }
 
 .login-box button {
-    width: 100%;
-    padding: 12px;
-    background: #4a90e2;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
+  width: 100%;
+  padding: 12px;
+  background: #4a90e2;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .login-box button:hover {
-    background: #357ABD;
+  background: #357abd;
 }
 
 .registre-se {
-    background-color: white;
+  background-color: white;
 }
 
 .a-registre-se {
-    color: #4a90e2;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.8vh;
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.8vh;
 }
 
 .a-registre-se:hover {
@@ -74,5 +74,22 @@
 }
 
 .p-login {
-    font-size: 2vh;
+  font-size: 2vh;
+}
+
+.erro {
+  color: rgb(173, 75, 75);
+  background-color: #ffe6e6;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.sucesso {
+  color: green;
+  background-color: #e6ffe6;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;
 }

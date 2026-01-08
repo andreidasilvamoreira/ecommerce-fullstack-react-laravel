@@ -84,21 +84,25 @@
   color: rgb(28, 112, 196);
 }
 
-.sucesso {
-  color: green;
-  background-color: #e6ffe6; 
-  padding: 10px;    
-  border-radius: 5px;  
-  margin-top: 10px;
-  font-weight: bold;      
-}
-
-.erro {
+.erro-registrar {
   color: rgb(173, 75, 75);          
   background-color: #ffe6e6;  
   padding: 10px;              
   border-radius: 5px;      
-  margin-top: 10px;          
+  margin: 0;
+  margin-bottom: 2vh;
+  font-size: 1.1rem;        
+}
+
+.sucesso-registrar {
+  color: green;
+  background-color: #e6ffe6; 
+  padding: 10px;    
+  border-radius: 5px;  
+  font-weight: bold;      
+  font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: 2vh; 
 }
 
 .registro{

@@ -21,23 +21,17 @@ export default function Registrar() {
     }
 
     try {
-      const response = await registro(name, email, senha)
+      const data = await registro(name, email, senha);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setSucesso("Conta criada com sucesso!");
-        setName("");
-        setEmail("");
-        setSenha("");
-        setConfirmaSenha("");
-      } else {
-        setErro(data.message || "Erro ao registrar.");
-      }
-    } catch (erro) {
-      setErro("Este email já está em uso")
-    };
-  
+      setSucesso(data.message || "Conta criada com sucesso!");
+      setName("");
+      setEmail("");
+      setSenha("");
+      setConfirmaSenha("");
+    } catch (error) {
+      console.error(error);
+      setErro(error.message || "Erro ao conectar com o servidor.");
+    }
   }
 
   return (
@@ -81,15 +75,17 @@ export default function Registrar() {
           required
         />
 
-        {erro && <p className="erro">{erro}</p>}
-        {sucesso && <p className="sucesso">{sucesso}</p>}
+        {erro && <p className="erro-registrar">{erro}</p>}
+        {sucesso && <p className="sucesso-registrar">{sucesso}</p>}
 
         <button type="submit">Registrar</button>
 
         <div className="auth-footer">
           <p className="p-registro">Já tem uma conta?</p>
-          <br/>
-          <a href="/login" className="label-entrar">Entrar</a>
+          <br />
+          <a href="/login" className="label-entrar">
+            Entrar
+          </a>
         </div>
       </form>
     </div>
