@@ -38,7 +38,7 @@ O frontend consome uma API REST desenvolvida em Laravel, localizada no mesmo rep
 
 ## ▶️ Como executar o projeto
 ```bash
-git clone https://github.com/andreidasilvamoreira/ReactApplications
+git clone https://github.com/andreidasilvamoreira/ecommerce-fullstack-react-laravel
 
 front-end:
 
